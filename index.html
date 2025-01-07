@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./reset.css">
+  <script src="https://kit.fontawesome.com/6e9edb0517.js" crossorigin="anonymous"></script>
+
+  <title>YouTube</title>
+
+  <style>
+    /* header */
+    header {
+      display: flex;  
+      align-items: center;
+      padding: 5px;
+    }
+    .header-start, .header-center, .header-end {
+      display: flex;
+      align-items: center;
+    }
+    .header-center{
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .search-wrapper {
+      flex-grow: 0;
+      display: flex;
+      justify-content: flex-end; 
+    }
+    
+    .btn-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255,255,255,0.1);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin: 5px;
+    }
+    .btn-icon:hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #717171;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      margin: 3px;
+    }
+    .avatar{
+      display: flex; 
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+    }
+    .avatar img {
+      border-radius: 50%;
+    }
+    .create {
+      flex-shrink: 0;
+         
+    }
+    .create-btn{
+      background-color: rgba(255,255,255,0.1);
+      color: aliceblue;
+      border-radius: 18px; 
+      border: none;
+      padding: 8px 10px;
+    }
+    .create-btn:hover{
+      background-color: #717171;
+      color: aliceblue;
+      border-radius: 18px; 
+      border: none;
+      padding: 8px 10px;
+    }
+    .fa-plus {
+      padding-right: 8px;
+    }
+
+    /* sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;   
+      /* flex:0.1;    */
+      width: 150px;
+    }
+    .sidebar-item{
+      display: flex;
+      justify-content: flex-start;
+      justify-content: center;
+      align-items: center;
+      padding-left: 2px ;
+    }
+    .sidebar-item:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15%;
+    }
+    .sidebar-icon{
+      margin: 1px;
+      padding: 10px;
+     
+    }
+    .sidebar-text {
+      font-size: 12px;
+    }
+    @media screen and (max-width: 1312px){
+      .sidebar {
+        display: flex;
+        flex-direction: column;   
+        /* flex:0.1;    */
+        width: 10%;
+      }
+      
+      .sidebar-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 2px ;
+      }
+      .sidebar-text {
+        font-size: xx-small !important;
+      }
+    }
+
+    /* container (videos / tags ) */
+    .content{
+      flex: 1;
+    }
+    .container{
+      display: flex;
+      justify-content: space-between;
+    }
+    .theme-tags{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      margin-bottom: 18px;
+      padding: 0 24px;
+    }
+    .tag  {
+      margin: 5px 10px;
+      padding: 8px 12px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+      border: transparent;
+      border-radius: 8px;
+      /* font-size: 14rem; */
+      /* font-weight: 500; */
+    }
+    .tag:hover  {
+      margin: 5px 10px;
+      padding: 8px 12px;
+      background-color: #f1f1f1;
+      color: black;
+      border: transparent;
+      border-radius: 8px;
+      /* font-size: 14rem; */
+      /* font-weight: 500; */
+    }
+    
+    
+    .video-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      /* flex-wrap: wrap; */
+      
+    }
+    .video-container{
+      /* display: flex; */
+      flex: 1 1 calc(25% - 10px);
+    }
+ 
+    
+    .detail{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>  
+    <div class="header-start">
+      <div class="sidebar-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="logo-icon">
+        <img class="logo" src="./icons/youtube.svg" alt="">
+      </div>
+    </div>
+    
+    <div class="header-center">
+      <div class="search-wrapper">
+        <div class="search btn-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <div class="voice btn-icon">
+        <i class="fa-solid fa-microphone"></i>
+      </div>
+    </div>
+    
+    <div class="header-end">
+      <div class="create">
+        <button class="create-btn"><i class="fa-solid fa-plus"></i>建立</button>
+      </div>
+      <div class="notify  btn-icon">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+      <div class="avatar">
+        <img src="https://yt3.ggpht.com/yti/ANjgQV8QjizvbHLu0V4KBw72F6Zp2L-j2LGVrKe1XD-ESFf9yQ=s88-c-k-c0x00ffffff-no-rj-mo"
+          alt="">
+      </div>
+    </div>
+    
+  </header>
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-item">
+        <img class="sidebar-icon" src="./icons/home.svg" alt="">
+        <span class="sidebar-text">首頁</span>
+      </div>
+      <div class="sidebar-item">
+        <img class="sidebar-icon" src="./icons/shorts.svg" alt="">
+        <span class="sidebar-text">Shorts</span>
+      </div>
+      <div class="sidebar-item">
+        <img class="sidebar-icon" src="./icons/subscription.svg" alt="">
+        <span class="sidebar-text">訂閱</span>
+      </div>
+      <div class="sidebar-item">
+        <img class="sidebar-icon" src="./icons/personal.svg" alt="">
+        <span class="sidebar-text">個人中心</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="theme-tags">
+        <button class="tag">全部</button>
+        <button class="tag">直播</button>
+        <button class="tag">音樂</button>
+        <button class="tag">遊戲</button>
+        <button class="tag">合輯</button>
+        <button class="tag">新聞</button>
+      </div>
+      <div class="video-list">
+        <div class="video-container">
+          <img alt="" style="background-color: transparent;"
+            class="yt-core-image yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded"
+            src="https://i.ytimg.com/vi/ksRgqwyYb7s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLCQm45BvAqep7lm16vza9Bjravxjg">
+          <div class="detail">
+            <div class="video-avatar">
+              <img src="https://yt3.ggpht.com/Rxi6pkw7dd8IGxkRneiNWbAoaCg7EKcVxLMasC53bn2SFYkybCz-c1uL1v-vkwRFmuI_2TfUUa4=s68-c-k-c0x00ffffff-no-rj" alt="">
+            </div>
+            <div class="description">
+              <h3>𝚓𝚊𝚣𝚣 𝚏𝚞𝚜𝚒𝚘𝚗 𝚝𝚘 𝚊𝚠𝚊𝚔𝚎𝚗 𝚢𝚘𝚞𝚛 𝚒𝚗𝚗𝚎𝚛 𝚝𝚒𝚐𝚎𝚛 </h3>
+              <span>Nebula Breeze</span>
+              <span>觀看次數：334,380次 1 個月前</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-container">
+          <img alt="" style="background-color: transparent;"
+            class="yt-core-image yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded"
+            src="https://i.ytimg.com/vi/ksRgqwyYb7s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLCQm45BvAqep7lm16vza9Bjravxjg">
+          <div class="detail">
+            <div class="video-avatar">
+              <img
+                src="https://yt3.ggpht.com/Rxi6pkw7dd8IGxkRneiNWbAoaCg7EKcVxLMasC53bn2SFYkybCz-c1uL1v-vkwRFmuI_2TfUUa4=s68-c-k-c0x00ffffff-no-rj"
+                alt="">
+            </div>
+            <div class="description">
+              <h3>𝚓𝚊𝚣𝚣 𝚏𝚞𝚜𝚒𝚘𝚗 𝚝𝚘 𝚊𝚠𝚊𝚔𝚎𝚗 𝚢𝚘𝚞𝚛 𝚒𝚗𝚗𝚎𝚛 𝚝𝚒𝚐𝚎𝚛 </h3>
+              <span>Nebula Breeze</span>
+              <span>觀看次數：334,380次 1 個月前</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-container">
+          <img alt="" style="background-color: transparent;"
+            class="yt-core-image yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded"
+            src="https://i.ytimg.com/vi/ksRgqwyYb7s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLCQm45BvAqep7lm16vza9Bjravxjg">
+          <div class="detail">
+            <div class="video-avatar">
+              <img
+                src="https://yt3.ggpht.com/Rxi6pkw7dd8IGxkRneiNWbAoaCg7EKcVxLMasC53bn2SFYkybCz-c1uL1v-vkwRFmuI_2TfUUa4=s68-c-k-c0x00ffffff-no-rj"
+                alt="">
+            </div>
+            <div class="description">
+              <h3>𝚓𝚊𝚣𝚣 𝚏𝚞𝚜𝚒𝚘𝚗 𝚝𝚘 𝚊𝚠𝚊𝚔𝚎𝚗 𝚢𝚘𝚞𝚛 𝚒𝚗𝚗𝚎𝚛 𝚝𝚒𝚐𝚎𝚛 </h3>
+              <span>Nebula Breeze</span>
+              <span>觀看次數：334,380次 1 個月前</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-container">
+          <img alt="" style="background-color: transparent;"
+            class="yt-core-image yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded"
+            src="https://i.ytimg.com/vi/ksRgqwyYb7s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLCQm45BvAqep7lm16vza9Bjravxjg">
+          <div class="detail">
+            <div class="video-avatar">
+              <img
+                src="https://yt3.ggpht.com/Rxi6pkw7dd8IGxkRneiNWbAoaCg7EKcVxLMasC53bn2SFYkybCz-c1uL1v-vkwRFmuI_2TfUUa4=s68-c-k-c0x00ffffff-no-rj"
+                alt="">
+            </div>
+            <div class="description">
+              <h3>𝚓𝚊𝚣𝚣 𝚏𝚞𝚜𝚒𝚘𝚗 𝚝𝚘 𝚊𝚠𝚊𝚔𝚎𝚗 𝚢𝚘𝚞𝚛 𝚒𝚗𝚗𝚎𝚛 𝚝𝚒𝚐𝚎𝚛 </h3>
+              <span>Nebula Breeze</span>
+              <span>觀看次數：334,380次 1 個月前</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-container">
+          <img alt="" style="background-color: transparent;"
+            class="yt-core-image yt-core-image--fill-parent-height yt-core-image--fill-parent-width yt-core-image--content-mode-scale-aspect-fill yt-core-image--loaded"
+            src="https://i.ytimg.com/vi/ksRgqwyYb7s/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLCQm45BvAqep7lm16vza9Bjravxjg">
+          <div class="detail">
+            <div class="video-avatar">
+              <img
+                src="https://yt3.ggpht.com/Rxi6pkw7dd8IGxkRneiNWbAoaCg7EKcVxLMasC53bn2SFYkybCz-c1uL1v-vkwRFmuI_2TfUUa4=s68-c-k-c0x00ffffff-no-rj"
+                alt="">
+            </div>
+            <div class="description">
+              <h3>𝚓𝚊𝚣𝚣 𝚏𝚞𝚜𝚒𝚘𝚗 𝚝𝚘 𝚊𝚠𝚊𝚔𝚎𝚗 𝚢𝚘𝚞𝚛 𝚒𝚗𝚗𝚎𝚛 𝚝𝚒𝚐𝚎𝚛 </h3>
+              <span>Nebula Breeze</span>
+              <span>觀看次數：334,380次 1 個月前</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
